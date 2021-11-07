@@ -13,7 +13,7 @@ Elementy potrzebne do zrobienia systemu alarmowego:
 - buttony
 - Rezystorki
 - Rezystor detekcyjny
-- dody led
+- diody led
 
 
 
