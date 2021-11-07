@@ -12,7 +12,7 @@ Elementy potrzebne do zrobienia systemu alarmowego:
 - Laser 5v
 - buttony
 - Rezystorki
-- Rezystor detekcyjny
+- Fotorezystor
 - diody led
 
 
