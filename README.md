@@ -1,2 +1,24 @@
-# dziekan
-![image](https://user-images.githubusercontent.com/92359546/138934586-b80495df-05b1-492f-97af-b0fa9f269270.png)
+# TEMAT - Security Alarm System
+
+# Wytyczne
+Opis projektu:
+Projekt będzie przedstawiał działane systemu alarmowego. 
+
+Elementy potrzebne do zrobienia systemu alarmowego:
+- Arduino
+- kabelki
+- PCB Boardy
+- Buzzer
+- Laser 5v
+- buttony
+- Rezystorki
+- Rezystor detekcyjny
+- dody led
+
+
+
+# Fragment kodu:
+
+```cpp
+tu będzie kod
+```
