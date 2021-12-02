@@ -9,8 +9,9 @@ Urządzenia wejścia:
 Urządzenia wyjścia:
 - Diody 
 - Buzzer
+- Laser
 
-Układ będzie realizować proste funkcję centralki alarmowej z jedną czujką czułą (fotorezystorem) na wiązkę laserową. Po podaniu napięcia na układ ziolona dioda powinna kilkukrotnie zaświecić a buzzer podać krótki charakterystyczny dźwięk co będzie oznaką gotowości układu do zazbrojenia. Chcąc zazbroić system należy nacinąć przycisk. Układ odpowie sygnałem akustycznym oraz zapaleniem się czerwonej diody. Po tej czyności układ już jest gotowy. Alarm zostanie wywołany poprzez przecięcie wiązki lasera. W chwili przecięcia wiązki system odpowiada dzwiękiem alarmu oraz migającymi diodami czerowna-pomarańczowa. W celu wyłączenia alarmu należy ponownie nacisnąć przycisk co wywoła powrót do stanu gotowości. 
+Układ będzie realizować proste funkcję centralki alarmowej z jedną czujką czułą (fotorezystorem) na wiązkę laserową. Po podaniu napięcia na układ ziolona dioda powinna kilkukrotnie zaświecić a buzzer podać krótki charakterystyczny dźwięk co będzie oznaką gotowości układu do zazbrojenia. Chcąc zazbroić system należy nacinąć przycisk. Układ odpowie sygnałem akustycznym oraz zapaleniem się czerwonej diody. Po tej czyności układ już jest gotowy. Alarm zostanie wywołany poprzez przecięcie wiązki lasera. W chwili przecięcia wiązki system odpowiada dzwiękiem alarmu oraz migającymi diodami czerwona-pomarańczowa. W celu wyłączenia alarmu należy ponownie nacisnąć przycisk co wywoła powrót do stanu gotowości. 
 
 Elementy potrzebne w celu zrealizowania systemu alarmowego:
 - Arduino
@@ -25,7 +26,9 @@ Elementy potrzebne w celu zrealizowania systemu alarmowego:
 - Fotorezystor
 - 4x Dioda
 
-Projekt połaczeniowy układu przy pomocy programu Fritzing:
+Schemat układu przy pomocy programu Eagle:
+
+Schemat połączeniowy układu przy pomocy programu Fritzing:
 ![Laser_Project](https://user-images.githubusercontent.com/92359546/144492375-999c27a2-7f95-49d2-abbf-4a353e71c6eb.png)
 
 Zdjęcia z realizowanego projektu:
