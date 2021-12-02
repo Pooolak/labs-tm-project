@@ -25,8 +25,14 @@ Elementy potrzebne w celu zrealizowania systemu alarmowego:
 - Fotorezystor
 - 4x Dioda
 
-Układ został podłączony zgodnie z poniższym schematem:
+Projekt połaczeniowy układu przy pomocy programu Fritzing:
 ![Laser_Project](https://user-images.githubusercontent.com/92359546/144492375-999c27a2-7f95-49d2-abbf-4a353e71c6eb.png)
+
+Zdjęcia z realizowanego projektu:
+![IMG_20211202_205430](https://user-images.githubusercontent.com/92359546/144495005-29b9f9c1-7e35-4b26-97a8-81a57a0df433.jpg)
+
+![IMG_20211202_205440](https://user-images.githubusercontent.com/92359546/144495042-3aeb320b-23fd-4f68-bd41-92ec28f34e4a.jpg)
+
 
 
 # Fragment kodu:
@@ -170,3 +176,9 @@ void calibrate() {
   tone(speakerPin, 220, 125);
 }
 ```
+
+Prezentacja działania układu:
+https://youtu.be/Yt8zGT6XYg8
+
+# Podsumowanie
+
