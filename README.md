@@ -2,18 +2,20 @@
 
 # Wytyczne
 Opis projektu:
-Projekt będzie przedstawiał działane systemu alarmowego. 
+Projekt będzie przedstawiał działane prostego systemu alarmowego. 
 
 Elementy potrzebne do zrobienia systemu alarmowego:
 - Arduino
-- kabelki
-- PCB Boardy
+- Przwody męsko-męskie
+- Przewody męsko-damskie
+- Płytka stykowa
 - Buzzer
 - Laser 5v
-- buttony
-- Rezystorki
+- Przycisk
+- 2x Rezystor 10k
+- 4x Rezystor 220
 - Fotorezystor
-- diody led
+- 4x Dioda
 
 
 
