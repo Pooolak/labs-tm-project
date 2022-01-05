@@ -42,7 +42,7 @@ Zdjęcia z realizowanego projektu:
 # Fragment kodu:
 
 ```cpp
-const int triggeredLED = 7;
+const int triggeredLED = 7;  
 const int triggeredLED2 = 8;
 const int RedLED = 4;
 const int GreenLED = 5;
@@ -50,7 +50,7 @@ const int inputPin = A0;
 const int speakerPin = 12;
 const int armButton = 6;
 
-boolean isArmed = true;
+boolean isArmed = true;  
 boolean isTriggered = false;
 int buttonVal = 0;
 int prev_buttonVal = 0;
