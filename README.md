@@ -27,6 +27,7 @@ Elementy potrzebne w celu zrealizowania systemu alarmowego:
 - 4x Dioda
 
 Schemat układu przy pomocy programu Eagle:
+![Laser_Project_Eagle](https://user-images.githubusercontent.com/92359546/148217414-2e566ab5-be0b-45f6-aae4-76bcdbb80a10.PNG)
 
 Schemat połączeniowy układu przy pomocy programu Fritzing:
 ![Laser_Project](https://user-images.githubusercontent.com/92359546/144492375-999c27a2-7f95-49d2-abbf-4a353e71c6eb.png)
