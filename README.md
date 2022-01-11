@@ -42,7 +42,8 @@ Zdjęcia z realizowanego projektu:
 # Fragment kodu:
 
 ```cpp
-const int triggeredLED = 7;  
+//definicja rejestrów
+const int triggeredLED = 7;
 const int triggeredLED2 = 8;
 const int RedLED = 4;
 const int GreenLED = 5;
@@ -50,14 +51,14 @@ const int inputPin = A0;
 const int speakerPin = 12;
 const int armButton = 6;
 
-boolean isArmed = true;  
-boolean isTriggered = false;
-int buttonVal = 0;
+boolean isArmed = true; //(true)jeśli przycisk jest uzbrojony i gotowy do uruchomienia
+boolean isTriggered = false;  //(false) jeśli przycisk jest "wzbudzony" i gotowy do uruchomienia
+int buttonVal = 0;//przycisk
 int prev_buttonVal = 0;
-int reading = 0;
-int threshold = 0;
+int reading = 0;//zmienna przechowująca odczyt czujnika
+int threshold = 0;//średni odczyt z czujnika
 
-
+//dźwięk alarmu
 const int lowrange = 2000;
 const int highrange = 4000;
 
@@ -72,39 +73,39 @@ void setup() {
   delay(500);
   digitalWrite(triggeredLED, LOW);
 
-  calibrate();
-  setArmedState();
+  calibrate();//wywołanie kalibracji
+  setArmedState();//wywołanie uzbrojenia alarmu
 }
 
 void loop() {
 
 
-  reading = analogRead(inputPin);
+  reading = analogRead(inputPin);//odczyt wartości
 
 
   int buttonVal = digitalRead(armButton);
-  if ((buttonVal == HIGH) && (prev_buttonVal == LOW)) {
-    setArmedState();
+  if ((buttonVal == HIGH) && (prev_buttonVal == LOW)) {//jeśłi przycisk jest wciśnięty i wcześniej nie był wciśnięty
+    setArmedState();//uzbrojenie alarmu
     delay(500);
   }
 
-  if ((isArmed) && (reading < threshold)) {
-    isTriggered = true;
+  if ((isArmed) && (reading < threshold)) {//wyzwolenie alarmu
+    isTriggered = true;//włączenie alarmu
   }
 
-  if (isTriggered) {
+  if (isTriggered) {//jeśli alarm się włączy
 
-    for (int i = lowrange; i <= highrange; i++)
+    for (int i = lowrange; i <= highrange; i++)//obsługa głośnika, dźwięk rosnący
     {
       tone (speakerPin, i, 250);
     }
 
-    for (int i = highrange; i >= lowrange; i--)
+    for (int i = highrange; i >= lowrange; i--)//obsługa głośnika, dźwięk "spadający"
     {
       tone (speakerPin, i, 250);
     }
 
-
+    //obsługa diod
     digitalWrite(triggeredLED, HIGH);
     delay(50);
     digitalWrite(triggeredLED, LOW);
@@ -118,36 +119,38 @@ void loop() {
   delay(20);
 }
 
-void setArmedState() {
+void setArmedState() {// uzbrojenie alarmu
 
-  if (isArmed) {
-    digitalWrite(GreenLED, HIGH);
-    digitalWrite(RedLED, LOW);
-    isTriggered = false;
-    isArmed = false;
-  } else {
-    digitalWrite(GreenLED, LOW);
-    digitalWrite(RedLED, HIGH);
-    tone(speakerPin, 220, 125);
+  if (isArmed) {//jeśli uzbrojony
+    digitalWrite(GreenLED, HIGH);//zapala się zielona dioda
+    digitalWrite(RedLED, LOW);//gaśnie czerwona
+    isTriggered = false;//wyłączenie alarmu
+    isArmed = false;//rozbrojenie
+  } else {//jeśli nie
+    digitalWrite(GreenLED, LOW);//gaśnie zielony
+    digitalWrite(RedLED, HIGH);//zapala się czerwony
+    tone(speakerPin, 220, 125);//zakomunikowanie dźwiękiem
     delay(200);
     tone(speakerPin, 196, 250);
-    isArmed = true;
+    isArmed = true;//uzbrojenie
   }
 }
 
 void calibrate() {
 
-  int sample = 0;
+  int sample = 0;//zmienna próbka
   int baseline = 0;
-  const int min_diff = 200;
-  const int sensitivity = 50;
-  int success_count = 0;
+  const int min_diff = 200;//zakres błędu odczytu
+  const int sensitivity = 50;//czułość
+  int success_count = 0;//sprawdzenie poprawności kalibracji
 
+//dioda
   digitalWrite(RedLED, LOW);
   digitalWrite(GreenLED, LOW);
 
   for (int i = 0; i < 10; i++) {
-    sample += analogRead(inputPin);
+    sample += analogRead(inputPin);//próbki
+    //obsługa diody
     digitalWrite(GreenLED, HIGH);
     delay (50);
     digitalWrite(GreenLED, LOW);
@@ -158,23 +161,24 @@ void calibrate() {
   {
     sample = analogRead(inputPin);
 
-    if (sample > baseline + min_diff) {
+    if (sample > baseline + min_diff) {//jeśli próbka jest większa niż baseline + błąd pomiarowy
       success_count++;
-      threshold += sample;
-
+      threshold += sample;//dodaj wartość próbki
+      //obsługa diody
       digitalWrite(GreenLED, HIGH);
       delay (100);
       digitalWrite(GreenLED, LOW);
       delay (100);
-    } else {
+    } else {//jeśli nie
+      //zerowanie zmiennych
       success_count = 0;
       threshold = 0;
     }
 
   } while (success_count < 3);
 
-  threshold = (threshold / 3) - sensitivity;
-
+  threshold = (threshold / 3) - sensitivity;//wyznaczenie średniej wartości odczytu czujnika
+  //sygnał dźwiękowy
   tone(speakerPin, 196, 250);
   delay(200);
   tone(speakerPin, 220, 125);
